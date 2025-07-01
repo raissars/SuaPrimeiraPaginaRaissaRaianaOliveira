@@ -18,3 +18,4 @@ class PostForm(forms.ModelForm):
 
 class BuscaPostForm(forms.Form):
     busca = forms.CharField(label="Buscar por título", max_length=100)
+

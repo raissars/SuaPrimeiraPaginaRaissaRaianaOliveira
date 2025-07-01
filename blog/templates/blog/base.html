@@ -5,15 +5,15 @@
     <title>Blog</title>
 </head>
 <body>
-    <h1>Blog da Raissa</h1>
-    <nav>
-        <a href="/">Início</a> |
-        <a href="/autor/">Novo Autor</a> |
-        <a href="/categoria/">Nova Categoria</a> |
-        <a href="/post/">Novo Post</a> |
-        <a href="/buscar/">Buscar Post</a>
-    </nav>
+    <h1>Blog da Raíssa</h1>
+    <a href="{% url 'home' %}">Início</a> |
+    <a href="{% url 'criar_autor' %}">Novo Autor</a> |
+    <a href="{% url 'criar_categoria' %}">Nova Categoria</a> |
+    <a href="{% url 'criar_post' %}">Novo Post</a> |
+    <a href="{% url 'buscar_post' %}">Buscar Post</a>
     <hr>
-    {% block conteudo %}{% endblock %}
+
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

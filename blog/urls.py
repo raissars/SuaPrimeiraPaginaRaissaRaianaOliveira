@@ -1,5 +1,5 @@
 from django.urls import path
-from . import views
+from blog import views
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -7,4 +7,6 @@ urlpatterns = [
     path('categoria/', views.criar_categoria, name='criar_categoria'),
     path('post/', views.criar_post, name='criar_post'),
     path('buscar/', views.buscar_post, name='buscar_post'),
+
 ]
+

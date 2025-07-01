@@ -27,12 +27,13 @@ def criar_post(request):
     return render(request, 'blog/form.html', {'form': form, 'titulo': 'Novo Post'})
 
 def buscar_post(request):
+    form = BuscaPostForm()
     resultados = None
-    if request.method == 'POST':
-        form = BuscaPostForm(request.POST)
-        if form.is_valid():
-            termo = form.cleaned_data['busca']
-            resultados = Post.objects.filter(titulo__icontains=termo)
-    else:
-        form = BuscaPostForm()
+
+    if request.method == 'GET' and 'busca' in request.GET:
+        termo = request.GET.get('busca')
+        print(f"🔎 Buscando por: {termo}")  # <-- ADICIONE ESTA LINHA
+        resultados = Post.objects.filter(titulo__icontains=termo)
+
     return render(request, 'blog/buscar.html', {'form': form, 'resultados': resultados})
+
